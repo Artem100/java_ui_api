@@ -20,4 +20,5 @@ public class SetupBrowser {
     public static void close_browser(){
         closeWebDriver();
     }
+
 }

@@ -1,13 +1,16 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.javafaker.Faker;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 
+import io.qameta.allure.selenide.AllureSelenide;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import pageObject.AccountLocators;
 import pageObject.LoginLocators;
@@ -25,6 +28,11 @@ public class LoginTest {
     LoginLocators loginPage = new LoginLocators();
     AccountLocators accountPage = new AccountLocators();
     RegistrationPage registrationpage = new RegistrationPage();
+//
+//    @BeforeSuite
+//    static void AllureSelenoid(){
+//        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
+//    }
 
     @BeforeMethod
     public static void start(){ SetupBrowser.start_browser(); }

@@ -1,12 +1,16 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Selenide.*;
 
 public class SimpleTest {
+
 
     @Test
     public void test_login(){
@@ -20,7 +24,7 @@ public class SimpleTest {
         $("input#input-password").sendKeys("12345");
         $("input[type='submit']").click();
         $("div#account-account ul.list-unstyled").should(Condition.visible);
-        $$("div#account-account ul.list-unstyled>li").shouldHave(size(12));
+        $$("div#account-account ul.list-unstyled>li").shouldHave(size(10));
     }
 
 
