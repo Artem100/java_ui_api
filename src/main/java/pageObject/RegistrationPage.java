@@ -1,5 +1,6 @@
 package pageObject;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -47,6 +48,7 @@ public class RegistrationPage {
         $(CONTINUE_BUTTON).click();
     }
 
+    @Step("User Registration Confirm {0}, {1}")
     public void userRegistrationFullConfirm(String name, String lastName, String email, String telephone,
                                  String password, String repeat_password){
         firstNameFieldInput(name);
