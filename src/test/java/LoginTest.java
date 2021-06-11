@@ -44,7 +44,7 @@ public class LoginTest {
 //        loginPage.buttonLoginClick();
         loginPage.login_to_account("test@ayay.coo", "12345");
         assertTrue(accountPage.accountListVisible());
-        assertEquals(accountPage.accountListElementsCount(), 12);
+        assertEquals(accountPage.accountListElementsCount(), 10);
 
     }
 

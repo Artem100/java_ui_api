@@ -20,7 +20,7 @@ public class SimpleTest {
         $("input#input-password").sendKeys("12345");
         $("input[type='submit']").click();
         $("div#account-account ul.list-unstyled").should(Condition.visible);
-        $$("div#account-account ul.list-unstyled>li").shouldHave(size(10));
+        $$("div#account-account ul.list-unstyled>li").shouldHave(size(12));
     }
 
 
