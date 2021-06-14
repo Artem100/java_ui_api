@@ -1,8 +1,10 @@
 package pageObject;
 
+import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.CollectionCondition.containExactTextsCaseSensitive;
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -23,6 +25,10 @@ public class AccountLocators {
 
     public int accountListElementsCount() {
         return $$(ACCOUNT_LIST_ELEMENTS).size();
+    }
+
+    public void accountListElementsCount_2(int count) {
+        $$(ACCOUNT_LIST_ELEMENTS).shouldHave(CollectionCondition.size(count));
     }
 
     public String successRegistrationText(){return $(SUCCESS_REGISTRATION_TEXT).text();}

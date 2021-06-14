@@ -19,6 +19,7 @@ public class LoginLocators extends BasePage{
         $(PASSWORD_FIELD).sendKeys(password);
     }
 
+    @Step
     public void buttonLoginClick() {
 //        $(BUTTON_LOGIN).click();
         click(BUTTON_LOGIN);

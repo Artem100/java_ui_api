@@ -1,35 +1,42 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import com.codeborne.selenide.testng.annotations.Report;
 import com.github.javafaker.Faker;
+import com.codeborne.selenide.testng.TextReport;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 
 import io.qameta.allure.selenide.AllureSelenide;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.testng.annotations.*;
 import pageObject.AccountLocators;
 import pageObject.LoginLocators;
 import pageObject.RegistrationPage;
 import setupBrowsers.SetupBrowser;
+
+import java.util.Dictionary;
 
 import static com.codeborne.selenide.Selenide.*;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static setupBrowsers.SetupBrowser.close_browser;
 
+@Report
+@Listeners(TextReport.class)
 public class LoginTest {
+
+    final Logger logger = LoggerFactory.getLogger(LoginTest.class);
 
     Faker faker = new Faker();
     LoginLocators loginPage = new LoginLocators();
     AccountLocators accountPage = new AccountLocators();
     RegistrationPage registrationpage = new RegistrationPage();
 
-    String basicUrl = "http://localhost";
+    String basicUrl = "http://10.0.6.74/";
 
     @BeforeMethod
     public static void start(){ SetupBrowser.start_browser(); }
@@ -42,10 +49,11 @@ public class LoginTest {
     @Description("Simple login")
     @Test
     public void test_login_positive(){
-        open(basicUrl  + "/index.php?route=account/login");
+        open(basicUrl  + "opencart/index.php?route=account/login");
         loginPage.login_to_account("test@ayay.coo", "12345");
         assertTrue(accountPage.accountListVisible());
-        assertEquals(accountPage.accountListElementsCount(), 12);
+//        assertEquals(accountPage.accountListElementsCount(), 12);
+        accountPage.accountListElementsCount_2(10);
 
     }
 
@@ -54,7 +62,7 @@ public class LoginTest {
     @Test
     public void test_registration_positive(){
 
-        open(basicUrl  + "/opencart/index.php?route=account/register");
+        open(basicUrl  + "opencart/index.php?route=account/register");
 
         String name = faker.name().name();
         String lastName = faker.name().firstName();
