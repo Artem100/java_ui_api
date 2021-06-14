@@ -19,6 +19,7 @@ import pageObject.RegistrationPage;
 import setupBrowsers.SetupBrowser;
 
 import java.util.Dictionary;
+import java.util.ResourceBundle;
 
 import static com.codeborne.selenide.Selenide.*;
 import static org.testng.Assert.assertEquals;
@@ -36,7 +37,8 @@ public class LoginTest {
     AccountLocators accountPage = new AccountLocators();
     RegistrationPage registrationpage = new RegistrationPage();
 
-    String basicUrl = "http://10.0.6.74/";
+    private ResourceBundle env = ResourceBundle.getBundle("envs");
+    private ResourceBundle creds = ResourceBundle.getBundle("creds");
 
     @BeforeMethod
     public static void start(){ SetupBrowser.start_browser(); }
@@ -49,11 +51,11 @@ public class LoginTest {
     @Description("Simple login")
     @Test
     public void test_login_positive(){
-        open(basicUrl  + "opencart/index.php?route=account/login");
-        loginPage.login_to_account("test@ayay.coo", "12345");
+        open(env.getString("base_env")+"opencart/index.php?route=account/login");
+        loginPage.login_to_account(creds.getString("username"), creds.getString("password"));
         assertTrue(accountPage.accountListVisible());
 //        assertEquals(accountPage.accountListElementsCount(), 12);
-        accountPage.accountListElementsCount_2(10);
+        accountPage.accountListElementsCount_2(12);
 
     }
 
@@ -62,7 +64,7 @@ public class LoginTest {
     @Test
     public void test_registration_positive(){
 
-        open(basicUrl  + "opencart/index.php?route=account/register");
+        open(env.getString("base_env") + "opencart/index.php?route=account/register");
 
         String name = faker.name().name();
         String lastName = faker.name().firstName();

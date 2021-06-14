@@ -9,7 +9,8 @@ public class LoginLocators extends BasePage{
     private static final By EMAIL_FIELD = By.cssSelector("input#input-email");
     private static final By PASSWORD_FIELD = By.cssSelector("input#input-password");
 //    private static final By BUTTON_LOGIN = By.cssSelector("input[type='submit']");
-    String [] BUTTON_LOGIN = {"LOGIN BUTTON", "input[type='submit']"};
+//    String [] BUTTON_LOGIN = {"LOGIN BUTTON", "input[type='submit']"};
+     private static final By BUTTON_LOGIN = By.cssSelector("input[type='submit']");
 
     public void emailFieldInput(String email) {
         $(EMAIL_FIELD).sendKeys(email);
@@ -19,10 +20,10 @@ public class LoginLocators extends BasePage{
         $(PASSWORD_FIELD).sendKeys(password);
     }
 
-    @Step
+    @Step("Click *login* button")
     public void buttonLoginClick() {
-//        $(BUTTON_LOGIN).click();
-        click(BUTTON_LOGIN);
+        $(BUTTON_LOGIN).click();
+//        click(BUTTON_LOGIN);
     }
 
 

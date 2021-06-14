@@ -16,39 +16,48 @@ public class RegistrationPage {
     private static final By AGREE_CHECKBOX = By.cssSelector("div.buttons input[name='agree']");
     private static final By CONTINUE_BUTTON = By.cssSelector("input[type='submit']");
 
+
+    @Step()
     public void firstNameFieldInput(String text){
         $(FIRST_NAME_FIELD).sendKeys(text);
     }
 
+    @Step()
     public void lastNameFieldInput(String text){
         $(LAST_NAME_FIELD).sendKeys(text);
     }
 
+    @Step()
     public void emailFieldInput(String text){
         $(EMAIL_FIELD).sendKeys(text);
     }
 
+    @Step()
     public void telephoneFieldInput(String text){
         $(TELEPHONE_FIELD).sendKeys(text);
     }
 
+    @Step()
     public void passwordFieldInput(String text){
         $(PASSWORD_FIELD).sendKeys(text);
     }
 
+    @Step()
     public void passwordConfirmFieldInput(String text){
         $(PASSWORD_CONFIRM_FIELD).sendKeys(text);
     }
 
+    @Step()
     public void agreeCheckboxClick(){
         $(AGREE_CHECKBOX).click();
     }
 
+    @Step()
     public void continueButton(){
         $(CONTINUE_BUTTON).click();
     }
 
-    @Step("User Registration Confirm {0}, {1}")
+    @Step("Full registration of new user")
     public void userRegistrationFullConfirm(String name, String lastName, String email, String telephone,
                                  String password, String repeat_password){
         firstNameFieldInput(name);

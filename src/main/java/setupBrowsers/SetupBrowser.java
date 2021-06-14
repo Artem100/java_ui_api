@@ -13,7 +13,7 @@ public class SetupBrowser {
         Configuration.browser = "firefox";
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
-        Configuration.headless = true;
+//        Configuration.headless = true;
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
     }
 
