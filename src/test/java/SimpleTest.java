@@ -11,14 +11,14 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class SimpleTest {
 
-
+    String basicUrl = "http://10.0.6.74";
     @Test
     public void test_login(){
         Configuration.browser = "firefox";
         Configuration.timeout = 10000;
 
         WebDriverManager.firefoxdriver().setup();
-        open("http://10.0.6.74/opencart/index.php?route=account/login");
+        open(basicUrl+"/opencart/index.php?route=account/login");
 
         $("input#input-email").sendKeys("test@ayay.coo");
         $("input#input-password").sendKeys("12345");

@@ -28,11 +28,8 @@ public class LoginTest {
     LoginLocators loginPage = new LoginLocators();
     AccountLocators accountPage = new AccountLocators();
     RegistrationPage registrationpage = new RegistrationPage();
-//
-//    @BeforeSuite
-//    static void AllureSelenoid(){
-//        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
-//    }
+
+    String basicUrl = "http://localhost";
 
     @BeforeMethod
     public static void start(){ SetupBrowser.start_browser(); }
@@ -45,14 +42,10 @@ public class LoginTest {
     @Description("Simple login")
     @Test
     public void test_login_positive(){
-        open("http://10.0.6.74/opencart/index.php?route=account/login");
-
-//        loginPage.emailFieldInput("test@ayay.coo");
-//        loginPage.passwordFieldInput("12345");
-//        loginPage.buttonLoginClick();
+        open(basicUrl  + "/index.php?route=account/login");
         loginPage.login_to_account("test@ayay.coo", "12345");
         assertTrue(accountPage.accountListVisible());
-        assertEquals(accountPage.accountListElementsCount(), 10);
+        assertEquals(accountPage.accountListElementsCount(), 12);
 
     }
 
@@ -61,7 +54,7 @@ public class LoginTest {
     @Test
     public void test_registration_positive(){
 
-        open("http://10.0.6.74/opencart/index.php?route=account/register");
+        open(basicUrl  + "/opencart/index.php?route=account/register");
 
         String name = faker.name().name();
         String lastName = faker.name().firstName();

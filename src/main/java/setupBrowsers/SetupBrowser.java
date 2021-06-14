@@ -10,10 +10,10 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 public class SetupBrowser {
 
     public static void start_browser(){
-        Configuration.browser = "chrome";
+        Configuration.browser = "firefox";
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
-        Configuration.headless = true;
+//        Configuration.headless = true;
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
     }
 
