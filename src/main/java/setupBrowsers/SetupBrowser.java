@@ -14,7 +14,8 @@ public class SetupBrowser {
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
 //        Configuration.headless = true;
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true)
+                .includeSelenideSteps(false).savePageSource(true));
     }
 
     public static void close_browser(){

@@ -10,7 +10,7 @@ public class LoginLocators extends BasePage{
     private static final By PASSWORD_FIELD = By.cssSelector("input#input-password");
 //    private static final By BUTTON_LOGIN = By.cssSelector("input[type='submit']");
 //    String [] BUTTON_LOGIN = {"LOGIN BUTTON", "input[type='submit']"};
-     private static final By BUTTON_LOGIN = By.cssSelector("input[type='submit']");
+     private static final By BUTTON_LOGIN = By.cssSelector("input[type='submit']1");
 
     public void emailFieldInput(String email) {
         $(EMAIL_FIELD).sendKeys(email);
