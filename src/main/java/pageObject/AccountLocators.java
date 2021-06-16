@@ -7,27 +7,23 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Selenide.*;
 
-public class AccountLocators {
+public class AccountLocators extends BasePage{
 
-    private static final By ACCOUNT_LIST = By.cssSelector("div#account-account ul.list-unstyled");
-    private static final By ACCOUNT_LIST_ELEMENTS = By.cssSelector("div#account-account ul.list-unstyled>li");
+    private static final String [] ACCOUNT_LIST = {"ACCOUNT LIST","div#account-account ul.list-unstyled"};
+    private static final String [] ACCOUNT_LIST_ELEMENTS = {"ACCOUNT LIST","div#account-account ul.list-unstyled>li"};
     private static final By SUCCESS_REGISTRATION_CONTENT = By.cssSelector("div#common-success");
     private static final By SUCCESS_REGISTRATION_TEXT = By.cssSelector("div#content>p:nth-child(2)");
 
 
-    public boolean accountListVisible() {
-        return $(ACCOUNT_LIST).isDisplayed();
+    public void accountListVisible() {
+        element_visible_on_page(ACCOUNT_LIST);
     }
 
     public boolean successRegistrationContentVisible() {
         return $(SUCCESS_REGISTRATION_CONTENT).isDisplayed();}
 
-    public int accountListElementsCount() {
-        return $$(ACCOUNT_LIST_ELEMENTS).size();
-    }
-
-    public void accountListElementsCount_2(int count) {
-        $$(ACCOUNT_LIST_ELEMENTS).shouldHave(CollectionCondition.size(count));
+    public void accountListElementsCount(int count) {
+        check_number_elements_on_page(count, ACCOUNT_LIST_ELEMENTS);
     }
 
     public String successRegistrationText(){return $(SUCCESS_REGISTRATION_TEXT).text();}

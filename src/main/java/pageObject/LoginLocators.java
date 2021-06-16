@@ -6,26 +6,22 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class LoginLocators extends BasePage{
 
-    private static final By EMAIL_FIELD = By.cssSelector("input#input-email");
-    private static final By PASSWORD_FIELD = By.cssSelector("input#input-password");
-//    private static final By BUTTON_LOGIN = By.cssSelector("input[type='submit']");
-//    String [] BUTTON_LOGIN = {"LOGIN BUTTON", "input[type='submit']"};
-     private static final By BUTTON_LOGIN = By.cssSelector("input[type='submit']1");
+    private static final String [] EMAIL_FIELD = {"PASSWORD FIELD", "input#input-email"};
+    private static final String [] PASSWORD_FIELD = {"PASSWORD FIELD", "input#input-password"};
+    private static final String [] BUTTON_LOGIN = {"LOGIN BUTTON", "input[type='submit']1"};
+
 
     public void emailFieldInput(String email) {
-        $(EMAIL_FIELD).sendKeys(email);
+        input_text(email, EMAIL_FIELD);
     }
 
     public void passwordFieldInput(String password) {
-        $(PASSWORD_FIELD).sendKeys(password);
+        input_text(password, PASSWORD_FIELD);
     }
 
-    @Step("Click *login* button")
     public void buttonLoginClick() {
-        $(BUTTON_LOGIN).click();
-//        click(BUTTON_LOGIN);
+        click(BUTTON_LOGIN);
     }
-
 
     @Step("Positive login")
     public void login_to_account(String email, String password) {

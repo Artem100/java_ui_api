@@ -26,11 +26,9 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static setupBrowsers.SetupBrowser.close_browser;
 
-@Report
-@Listeners(TextReport.class)
+//@Report
+//@Listeners(TextReport.class)
 public class LoginTest {
-
-    final Logger logger = LoggerFactory.getLogger(LoginTest.class);
 
     Faker faker = new Faker();
     LoginLocators loginPage = new LoginLocators();
@@ -53,29 +51,27 @@ public class LoginTest {
     public void test_login_positive(){
         open(env.getString("base_env")+"opencart/index.php?route=account/login");
         loginPage.login_to_account(creds.getString("username"), creds.getString("password"));
-        assertTrue(accountPage.accountListVisible());
-//        assertEquals(accountPage.accountListElementsCount(), 12);
-        accountPage.accountListElementsCount_2(12);
-
+        accountPage.accountListVisible();
+        accountPage.accountListElementsCount(12);
     }
+//
+//    @Severity(SeverityLevel.NORMAL)
+//    @Description("Positive registration")
+//    @Test
+//    public void test_registration_positive(){
+//
+//        open(env.getString("base_env") + "opencart/index.php?route=account/register");
+//
+//        String name = faker.name().name();
+//        String lastName = faker.name().firstName();
+//        String email = faker.internet().emailAddress();
+//        String telephone = faker.phoneNumber().phoneNumber();
+//        String password = faker.internet().password();
+//
+//        registrationpage.userRegistrationFullConfirm(name, lastName, email, telephone, password, password);
+//        assertTrue(accountPage.successRegistrationContentVisible());
+//        assertEquals(accountPage.successRegistrationText(), "Congratulations! Your new account has been successfully created!");
 
-    @Severity(SeverityLevel.NORMAL)
-    @Description("Positive registration")
-    @Test
-    public void test_registration_positive(){
-
-        open(env.getString("base_env") + "opencart/index.php?route=account/register");
-
-        String name = faker.name().name();
-        String lastName = faker.name().firstName();
-        String email = faker.internet().emailAddress();
-        String telephone = faker.phoneNumber().phoneNumber();
-        String password = faker.internet().password();
-
-        registrationpage.userRegistrationFullConfirm(name, lastName, email, telephone, password, password);
-        assertTrue(accountPage.successRegistrationContentVisible());
-        assertEquals(accountPage.successRegistrationText(), "Congratulations! Your new account has been successfully created!");
-
-    }
+//    }
 
 }
