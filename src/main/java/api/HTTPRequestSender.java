@@ -2,7 +2,7 @@ package api;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
-import json.Pojo;
+import api.json.Pojo;
 
 import static io.restassured.RestAssured.given;
 
@@ -10,9 +10,6 @@ import static io.restassured.RestAssured.given;
 // METHODS
 
 public class HTTPRequestSender {
-
-    //static String coockieLogin = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwNjMxMjM0NTAwIiwiZXhwIjoxNTU4NjI3MTg1fQ.XJdB9cpagvfkn6Neu9u4Djo0HmJCvO0Rln6vP-VCJwhlVYn_YyR9kOkaXHQvnNN1GCUNo7jqh8qenh1gEZ_siw";
-
 
     public static ValidatableResponse get(String path) {
         return given().

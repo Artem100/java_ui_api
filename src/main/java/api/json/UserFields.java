@@ -1,4 +1,4 @@
-package json;
+package api.json;
 
 public class UserFields implements Pojo {
 

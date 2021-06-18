@@ -1,6 +1,6 @@
 package api;
 
-import json.UserFields;
+import api.json.UserFields;
 
 public class JsonFixtures {
 

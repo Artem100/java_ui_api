@@ -5,7 +5,7 @@ import api.JsonFixtures;
 import io.qameta.allure.Description;
 import io.restassured.RestAssured;
 import io.restassured.response.ValidatableResponse;
-import json.UserFields;
+import api.json.UserFields;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;

@@ -1,7 +1,7 @@
 package api;
 
 import io.restassured.response.ValidatableResponse;
-import json.UserFields;
+import api.json.UserFields;
 
 
 public class ActionsAPI {
