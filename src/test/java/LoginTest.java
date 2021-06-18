@@ -26,8 +26,8 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static setupBrowsers.SetupBrowser.close_browser;
 
-//@Report
-//@Listeners(TextReport.class)
+@Report
+@Listeners(TextReport.class)
 public class LoginTest {
 
     Faker faker = new Faker();
